@@ -1,8 +1,8 @@
 //
 //  XCTestCase+MemoryLeakTracking.swift
-//  MovieCoreTests
+//  SwiftUIResourcesTests
 //
-//  Created by Belkhadir Anas on 18/9/2023.
+//  Created by Belkhadir Anas on 20/9/2023.
 //
 
 import XCTest
@@ -14,4 +14,3 @@ extension XCTestCase {
         }
     }
 }
-
