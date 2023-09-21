@@ -7,37 +7,43 @@
 
 import SwiftUI
 
-public struct LoadResourceView<ViewModel: ResourceLoadable & ObservableObject >: View {
-    @ObservedObject private var viewModel: ViewModel
+public struct LoadResourceView<ViewModel: ResourceLoadable & ObservableObject>: View {
+    public typealias LoadingView = () -> AnyView
     public typealias ResourceView = (ViewModel.Resource) -> AnyView
     public typealias ErrorView = (Error) -> AnyView
+    public typealias DefaultView = () -> AnyView
     
+    @ObservedObject private var viewModel: ViewModel
+    private let loadingView: LoadingView
     private let view: ResourceView
     private let errorView: ErrorView
+    private let defaultView: DefaultView
     
     public init(
         viewModel: ViewModel,
+        loadingView: @escaping LoadingView,
         view: @escaping ResourceView,
-        errorView: @escaping ErrorView
+        errorView: @escaping ErrorView,
+        defaultView: @escaping DefaultView
     ) {
         self.viewModel = viewModel
+        self.loadingView = loadingView
         self.view = view
         self.errorView = errorView
+        self.defaultView = defaultView
     }
     
     public var body: some View {
         Group {
             switch viewModel.state {
                 case .loading:
-                    ProgressView {
-                        Text("Loading...")
-                    }
+                    loadingView()
                 case .loaded(let resource):
                     view(resource)
                 case .failed(let error):
                     errorView(error)
                 case .none:
-                    Text("No data to present")
+                    defaultView()
             }
         }.onAppear(perform: { viewModel.loadResource() })
     }
