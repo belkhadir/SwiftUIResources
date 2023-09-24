@@ -11,7 +11,8 @@
 		4901CB2E2AC0547C00F3D7FC /* ResourceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB2D2AC0547C00F3D7FC /* ResourceViewModelTests.swift */; };
 		4901CB312AC0548900F3D7FC /* MockResourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB302AC0548900F3D7FC /* MockResourceProvider.swift */; };
 		4901CB342AC0549D00F3D7FC /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB332AC0549D00F3D7FC /* XCTestCase+MemoryLeakTracking.swift */; };
-		492613912ABA4A4F0053B325 /* ResourceProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492613902ABA4A4F0053B325 /* ResourceProviding.swift */; };
+		4901CB3C2AC084E600F3D7FC /* ResourceFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB3B2AC084E600F3D7FC /* ResourceFetching.swift */; };
+		492613912ABA4A4F0053B325 /* ResourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492613902ABA4A4F0053B325 /* ResourceService.swift */; };
 		492613932ABA4A520053B325 /* ResourceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492613922ABA4A520053B325 /* ResourceState.swift */; };
 		4926139B2ABA4AFA0053B325 /* LoadResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926139A2ABA4AFA0053B325 /* LoadResourceView.swift */; };
 		4926139D2ABA4B030053B325 /* ResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926139C2ABA4B030053B325 /* ResourceViewModel.swift */; };
@@ -33,8 +34,9 @@
 		4901CB302AC0548900F3D7FC /* MockResourceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResourceProvider.swift; sourceTree = "<group>"; };
 		4901CB332AC0549D00F3D7FC /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		4901CB352AC054BE00F3D7FC /* SwiftUIResourcesTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftUIResourcesTests.xctestplan; sourceTree = "<group>"; };
+		4901CB3B2AC084E600F3D7FC /* ResourceFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceFetching.swift; sourceTree = "<group>"; };
 		492613782ABA4A370053B325 /* SwiftUIResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftUIResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		492613902ABA4A4F0053B325 /* ResourceProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceProviding.swift; sourceTree = "<group>"; };
+		492613902ABA4A4F0053B325 /* ResourceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceService.swift; sourceTree = "<group>"; };
 		492613922ABA4A520053B325 /* ResourceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceState.swift; sourceTree = "<group>"; };
 		4926139A2ABA4AFA0053B325 /* LoadResourceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadResourceView.swift; sourceTree = "<group>"; };
 		4926139C2ABA4B030053B325 /* ResourceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceViewModel.swift; sourceTree = "<group>"; };
@@ -107,7 +109,8 @@
 		4926137A2ABA4A370053B325 /* SwiftUIResources */ = {
 			isa = PBXGroup;
 			children = (
-				492613902ABA4A4F0053B325 /* ResourceProviding.swift */,
+				4901CB3B2AC084E600F3D7FC /* ResourceFetching.swift */,
+				492613902ABA4A4F0053B325 /* ResourceService.swift */,
 				4999A29E2ABF765600C44D56 /* Model */,
 				4999A29C2ABF762C00C44D56 /* View */,
 				4999A29D2ABF763E00C44D56 /* ViewModel */,
@@ -259,10 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492613912ABA4A4F0053B325 /* ResourceProviding.swift in Sources */,
+				492613912ABA4A4F0053B325 /* ResourceService.swift in Sources */,
 				4926139B2ABA4AFA0053B325 /* LoadResourceView.swift in Sources */,
 				4926139D2ABA4B030053B325 /* ResourceViewModel.swift in Sources */,
 				492613932ABA4A520053B325 /* ResourceState.swift in Sources */,
+				4901CB3C2AC084E600F3D7FC /* ResourceFetching.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

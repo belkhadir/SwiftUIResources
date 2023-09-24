@@ -7,7 +7,7 @@
 
 import SwiftUIResources
 
-final class MockResourceProvider: ResourceProviding {
+final class MockResourceService: ResourceService {
     typealias Resource = String
 
     var stubbedResult: Result<String, Error>?
@@ -15,7 +15,7 @@ final class MockResourceProvider: ResourceProviding {
     // Intentionally create a property to retain the last closure
     var retainedClosure: ((Result<String, Error>) -> Void)?
     
-    func fetchResource(completion: @escaping (Result<String, Error>) -> Void) {
+    func retrieveResource(completion: @escaping (Result<String, Error>) -> Void) {
         retainedClosure = completion // Intentionally retaining the closure
         if let result = stubbedResult {
             completion(result)

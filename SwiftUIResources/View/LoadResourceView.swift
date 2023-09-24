@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct LoadResourceView<ViewModel: ResourceLoadable & ObservableObject>: View {
+public struct LoadResourceView<ViewModel: ResourceFetching & ObservableObject>: View {
     public typealias LoadingView = () -> AnyView
     public typealias ResourceView = (ViewModel.Resource) -> AnyView
     public typealias ErrorView = (Error) -> AnyView
@@ -45,6 +45,6 @@ public struct LoadResourceView<ViewModel: ResourceLoadable & ObservableObject>: 
                 case .none:
                     defaultView()
             }
-        }.onAppear(perform: { viewModel.loadResource() })
+        }.onAppear(perform: { viewModel.fetchResource() })
     }
 }

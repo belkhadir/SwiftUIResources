@@ -1,14 +1,14 @@
 //
-//  SwiftUIResources.swift
+//  ResourceService.swift
 //  MovieCore
 //
 //  Created by Belkhadir Anas on 19/9/2023.
 //
 
-public protocol ResourceProviding {
+public protocol ResourceService {
     associatedtype Resource
     
     typealias Result = Swift.Result<Resource, Error>
     
-    func fetchResource(completion: @escaping (Result) -> Void)
+    func retrieveResource(completion: @escaping (Result) -> Void)
 }

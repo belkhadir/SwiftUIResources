@@ -7,30 +7,23 @@
 
 import SwiftUI
 
-public protocol ResourceLoadable {
-    associatedtype Resource: Equatable
-    
-    var state: ResourceState<Resource> { get }
-    func loadResource()
-}
-
-final public class ResourceViewModel<ResourceProvider: ResourceProviding>: ObservableObject where ResourceProvider.Resource: Equatable  {
+final public class ResourceViewModel<ResourceProvider: ResourceService>: ObservableObject where ResourceProvider.Resource: Equatable  {
     public typealias Resource = ResourceProvider.Resource
     
-    private let resourceProvider: ResourceProvider
+    private let service: ResourceProvider
     
     @Published private(set) public var state: ResourceState<Resource> = .none
     
-    public init(resourceProvider: ResourceProvider) {
-        self.resourceProvider = resourceProvider
+    public init(service: ResourceProvider) {
+        self.service = service
     }
 }
 
-// MARK: - ResourceLoadable
-extension ResourceViewModel: ResourceLoadable {
-    public func loadResource() {
+// MARK: - ResourceFetching
+extension ResourceViewModel: ResourceFetching {
+    public func fetchResource() {
         state = .loading
-        resourceProvider.fetchResource { [weak self] result in
+        service.retrieveResource { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let resource):

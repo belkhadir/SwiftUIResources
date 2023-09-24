@@ -32,10 +32,10 @@ final class ResourceViewModelTests: XCTestCase {
     }
     
     func testNoRetainCycle() {
-        var sut: ResourceViewModel<MockResourceProvider>? = makeSUT().sut
+        var sut: ResourceViewModel<MockResourceService>? = makeSUT().sut
         weak var weakSUT = sut
         
-        sut?.loadResource()
+        sut?.fetchResource()
         
         sut = nil
         
@@ -45,18 +45,18 @@ final class ResourceViewModelTests: XCTestCase {
 
 // MARK: - Helpers
 private extension ResourceViewModelTests {
-    func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ResourceViewModel<MockResourceProvider>, resource: MockResourceProvider) {
-        let resource = MockResourceProvider()
-        let viewModel = ResourceViewModel(resourceProvider: resource)
-        trackForMemoryLeaks(resource, file: file, line: line)
+    func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ResourceViewModel<MockResourceService>, resource: MockResourceService) {
+        let service = MockResourceService()
+        let viewModel = ResourceViewModel(service: service)
+        trackForMemoryLeaks(service, file: file, line: line)
         trackForMemoryLeaks(viewModel, file: file, line: line)
-        return (viewModel, resource)
+        return (viewModel, service)
     }
     
     func assertThat(givenResult: Result<String, Error>?, expectedState: ResourceState<String>, file: StaticString = #file, line: UInt = #line) {
         let (sut, resource) = makeSUT()
         resource.stubbedResult = givenResult
-        sut.loadResource()
+        sut.fetchResource()
         XCTAssertEqual(sut.state, expectedState)
     }
 }
