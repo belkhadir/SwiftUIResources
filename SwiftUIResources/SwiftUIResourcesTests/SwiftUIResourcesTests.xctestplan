@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "22339CF9-2723-4C0D-84E7-0933B73148E5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SwiftUIResources.xcodeproj",
+        "identifier" : "4901CB222AC0544200F3D7FC",
+        "name" : "SwiftUIResourcesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
