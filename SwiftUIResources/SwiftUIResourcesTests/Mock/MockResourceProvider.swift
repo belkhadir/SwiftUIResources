@@ -1,8 +1,8 @@
 //
 //  MockResourceProvider.swift
-//  MovieiOSTests
+//  SwiftUIResourcesTests
 //
-//  Created by Belkhadir Anas on 19/9/2023.
+//  Created by Belkhadir Anas on 20/9/2023.
 //
 
 import SwiftUIResources
@@ -22,4 +22,3 @@ final class MockResourceProvider: ResourceProviding {
         }
     }
 }
-
