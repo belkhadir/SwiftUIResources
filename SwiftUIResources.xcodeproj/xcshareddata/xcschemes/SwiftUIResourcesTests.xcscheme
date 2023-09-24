@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1430"
+   LastUpgradeVersion = "1500"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -23,7 +23,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "492613B12ABB25420053B325"
+               BlueprintIdentifier = "4901CB222AC0544200F3D7FC"
                BuildableName = "SwiftUIResourcesTests.xctest"
                BlueprintName = "SwiftUIResourcesTests"
                ReferencedContainer = "container:SwiftUIResources.xcodeproj">
